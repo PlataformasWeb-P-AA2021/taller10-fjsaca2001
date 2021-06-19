@@ -1,0 +1,15 @@
+<h3>Barrios de la ciudad de Loja</h3>
+<ul>
+    {% for b in barrios %}
+    <li>
+        {{b.nombre}}
+        <ul>
+            <li>Número de viviendas: {{b.nroViviendas}}</li>
+            <li>Número de parques: {{b.nroParques}}</li>
+            <li>Número de edifícios: {{b.nroEdificios}}</li>
+            <li>Parróquia: {{b.parroquia}}</li>
+        </ul>
+    </li>
+    {% endfor %}
+</ul>
+[<a href="{% url 'index' %}">Inicio</a>]

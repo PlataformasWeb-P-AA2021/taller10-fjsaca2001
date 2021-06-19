@@ -1,0 +1,28 @@
+<h3>Parroquias y barrios de la ciudad de Loja</h3>
+<ul>
+ {% for p in parroquias %}
+
+  <li>
+    {{p}} [<a href="{% url 'editarParroquia' p.id %}">Editar</a>]
+      <ul>
+        {% for b in p.parroquias.all %}
+          <li>
+              <spam>{{b.nombre}}</spam> [<a href="{% url 'editarBarrio' b.id %}">Editar</a>]
+              <ul>
+                  <li>Número de viviendas: {{b.nroViviendas}}</li>
+                  <li>Número de parques: {{b.nroParques}}</li>
+                  <li>Número de edifícios: {{b.nroEdificios}}</li>
+              </ul>
+          </li>
+        {% endfor %}
+      </ul>
+    [<a href="{% url 'agregarBarrioParroquia' p.id %}">Agregar barrio</a>]
+  </li>
+  <hr/>
+
+{% endfor %}
+</ul>
+<br>
+[<a href="{%url 'barrios' %}">Ver todos los barrios</a>]<br>
+[<a href="{%url 'agregarParroquia' %}">Agregar Parroquia</a>]<br>
+[<a href="{%url 'agregarBarrio' %}">Agregar Barrio</a>]
